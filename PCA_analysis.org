@@ -436,7 +436,7 @@ p4ib.tj <- pca.ib.dc.tj <- fviz_pca_ind(prcomp(df.ib.dc.tj), title = "PCA - Dist
 ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.pdf", width = 800, height = 800)
 ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.png", width = 2400, height = 2400, res = 300)
 #+END_SRC
-[./Data/PCA_IB_Inflammation001.png]]
+[[.]/Data/PCA_IB_Inflammation001.png]]
 
 
 * FAMD - Factor Analysis of Mixed Data
