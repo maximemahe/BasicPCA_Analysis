@@ -1,3 +1,6 @@
+
+#+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
+
 #Set directory
 setwd("~\Data")
 
@@ -438,3 +441,5 @@ famd2 <- fviz_ellipses(res.famd, c("Organ", "Condition"),
 
 ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.pdf", width = 800, height = 800)
 ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.png", width = 800, height = 800, res = 300)
+
+#+END_SRC
