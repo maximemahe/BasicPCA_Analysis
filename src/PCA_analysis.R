@@ -64,7 +64,7 @@ p4was <- pca.was.dc <- fviz_pca_ind(prcomp(df.was.dc), title = "PCA - Distal col
 #Visual inspection of the data
 #plot(pca.was.jej) #Plot individual PCA
 ggexport(plotlist = list(p1was,p2was,p3was,p4was), nrow=2, ncol=2, filename = "PCA_WAS.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1was,p2was,p3was,p4was), nrow=2, ncol=2, filename = "PCA_WAS.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1was,p2was,p3was,p4was), nrow=2, ncol=2, filename = "PCA_WAS.png", width = 2400, height = 2400, res = 300)
 
 ##############################################################################################
 
@@ -113,7 +113,7 @@ p4was.ax <- pca.was.dc.ax <- fviz_pca_ind(prcomp(df.was.dc.ax), title = "PCA - D
 #Visual inspection of the data
 #plot(pca.was.jej.ax) #Plot individual PCA
 ggexport(plotlist = list(p1was.ax,p2was.ax,p3was.ax,p4was.ax), nrow=2, ncol=2, filename = "PCA_WAS_AntiOx.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1was.ax,p2was.ax,p3was.ax,p4was.ax), nrow=2, ncol=2, filename = "PCA_WAS_AntiOx.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1was.ax,p2was.ax,p3was.ax,p4was.ax), nrow=2, ncol=2, filename = "PCA_WAS_AntiOx.png", width = 2400, height = 2400, res = 300)
 
 ##############################################################################################
 
@@ -162,7 +162,7 @@ p4was.inf <- pca.was.dc.inf <- fviz_pca_ind(prcomp(df.was.dc.inf), title = "PCA 
 #Visual inspection of the data
 #plot(pca.was.jej.ax) #Plot individual PCA
 ggexport(plotlist = list(p1was.inf,p2was.inf,p3was.inf,p4was.inf), nrow=2, ncol=2, filename = "PCA_WAS_Inflammation.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1was.inf,p2was.inf,p3was.inf,p4was.inf), nrow=2, ncol=2, filename = "PCA_WAS_Inflammation.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1was.inf,p2was.inf,p3was.inf,p4was.inf), nrow=2, ncol=2, filename = "PCA_WAS_Inflammation.png", width = 2400, height = 2400, res = 300)
 
 ##############################################################################################
 
@@ -211,7 +211,7 @@ p4was.tj <- pca.was.dc.tj <- fviz_pca_ind(prcomp(df.was.dc.tj), title = "PCA - D
 #Visual inspection of the data
 #plot(pca.was.jej.tj) #Plot individual PCA
 ggexport(plotlist = list(p1was.tj,p2was.tj,p3was.tj,p4was.tj), nrow=2, ncol=2, filename = "PCA_WAS_TightJunction.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1was.tj,p2was.tj,p3was.tj,p4was.tj), nrow=2, ncol=2, filename = "PCA_WAS_TightJunction.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1was.tj,p2was.tj,p3was.tj,p4was.tj), nrow=2, ncol=2, filename = "PCA_WAS_TightJunction.png", width = 2400, height = 2400, res = 300)
 
 ##########################################################################################
 ##########################################################################################
@@ -267,7 +267,7 @@ p4ib <- pca.ib.dc <- fviz_pca_ind(prcomp(df.ib.dc), title = "PCA - Distal colon"
 #Visual inspection of the data
 #plot(pca.ib.jej) #Plot individual PCA
 ggexport(plotlist = list(p1ib,p2ib,p3ib,p4ib), nrow=2, ncol=2, filename = "PCA_IB.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1ib,p2ib,p3ib,p4ib), nrow=2, ncol=2, filename = "PCA_IB.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1ib,p2ib,p3ib,p4ib), nrow=2, ncol=2, filename = "PCA_IB.png", width = 2400, height = 2400, res = 300)
 
 ##############################################################################################
 
@@ -315,7 +315,7 @@ p4ib.ax <- pca.ib.dc.ax <- fviz_pca_ind(prcomp(df.ib.dc.ax), title = "PCA - Dist
 #Visual inspection of the data
 #plot(pca.ib.jej.ax) #Plot individual PCA
 ggexport(plotlist = list(p1ib.ax,p2ib.ax,p3ib.ax,p4ib.ax), nrow=2, ncol=2, filename = "PCA_IB_Antioxydant.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1ib.ax,p2ib.ax,p3ib.ax,p4ib.ax), nrow=2, ncol=2, filename = "PCA_IB_Antioxydant.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1ib.ax,p2ib.ax,p3ib.ax,p4ib.ax), nrow=2, ncol=2, filename = "PCA_IB_Antioxydant.png", width = 2400, height = 2400, res = 300)
 
 ##############################################################################################
 
@@ -363,7 +363,7 @@ p4ib.inf <- pca.ib.dc.inf <- fviz_pca_ind(prcomp(df.ib.dc.inf), title = "PCA - D
 #Visual inspection of the data
 #plot(pca.ib.jej.inf) #Plot individual PCA
 ggexport(plotlist = list(p1ib.inf,p2ib.inf,p3ib.inf,p4ib.inf), nrow=2, ncol=2, filename = "PCA_IB_Inflammation.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1ib.inf,p2ib.inf,p3ib.inf,p4ib.inf), nrow=2, ncol=2, filename = "PCA_IB_Inflammation.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1ib.inf,p2ib.inf,p3ib.inf,p4ib.inf), nrow=2, ncol=2, filename = "PCA_IB_Inflammation.png", width = 2400, height = 2400, res = 300)
 
 ##############################################################################################
 
@@ -411,7 +411,7 @@ p4ib.tj <- pca.ib.dc.tj <- fviz_pca_ind(prcomp(df.ib.dc.tj), title = "PCA - Dist
 #Visual inspection of the data
 #plot(pca.ib.jej.tj) #Plot individual PCA
 ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.png", width = 2400, height = 2400, res = 300)
 
 ##########################################################################################
 ##########################################################################################
@@ -437,4 +437,4 @@ famd2 <- fviz_ellipses(res.famd, c("Organ", "Condition"),
              repel = TRUE)
 
 ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.pdf", width = 800, height = 800)
-ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.png", width = 2400, height = 2400, res = 300)

@@ -1,7 +1,6 @@
-*** PCA Analysis
+* PCA Analysis
 
 ** Environment and data input
-
 #+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 #Set directory
 setwd("~\Data")
@@ -16,7 +15,6 @@ data <- read.table("~\Data\data.txt", sep = "\t", header = T, row.names = 1)
 #+END_SRC
 
 ** Data preparation for WAS
-
 #+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 # Standardize the data sets
 df <- data[1:191, 1:13]
@@ -38,7 +36,6 @@ df.was.dc <- df[144:167, 1:13]
 #+END_SRC
 
 ** PCA computing with prcomp() function for WAS
-
 #+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 #Compute PCA with prcomp function
 p1was <- pca.was.jej <- fviz_pca_ind(prcomp(df.was.jej), title = "PCA - Jejunum",
@@ -75,17 +72,16 @@ p4was <- pca.was.dc <- fviz_pca_ind(prcomp(df.was.dc), title = "PCA - Distal col
 #+END_SRC
 
 ** PCA visualization and figure exportation for WAS
-
 #+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 #Compute PCA with prcomp function
 #Visual inspection of the data
 #plot(pca.was.jej) #Plot individual PCA
 ggexport(plotlist = list(p1was,p2was,p3was,p4was), nrow=2, ncol=2, filename = "PCA_WAS.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1was,p2was,p3was,p4was), nrow=2, ncol=2, filename = "PCA_WAS.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1was,p2was,p3was,p4was), nrow=2, ncol=2, filename = "PCA_WAS.png", width = 2400, height = 2400, res = 300)
 #+END_SRC
+[[./Data/PCA_WAS001.png]]
 
 ** PCA computing with prcomp() function and visualization for WAS and each gene sets
-
 #+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region per condition per function
@@ -132,9 +128,9 @@ p4was.ax <- pca.was.dc.ax <- fviz_pca_ind(prcomp(df.was.dc.ax), title = "PCA - D
 #Visual inspection of the data
 #plot(pca.was.jej.ax) #Plot individual PCA
 ggexport(plotlist = list(p1was.ax,p2was.ax,p3was.ax,p4was.ax), nrow=2, ncol=2, filename = "PCA_WAS_AntiOx.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1was.ax,p2was.ax,p3was.ax,p4was.ax), nrow=2, ncol=2, filename = "PCA_WAS_AntiOx.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1was.ax,p2was.ax,p3was.ax,p4was.ax), nrow=2, ncol=2, filename = "PCA_WAS_AntiOx.png", width = 2400, height = 2400, res = 300)
 
-##############################################################################################
+[[./Data/PCA_WAS_AntiOx001.png]]
 
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region per condition per function
@@ -181,9 +177,9 @@ p4was.inf <- pca.was.dc.inf <- fviz_pca_ind(prcomp(df.was.dc.inf), title = "PCA 
 #Visual inspection of the data
 #plot(pca.was.jej.ax) #Plot individual PCA
 ggexport(plotlist = list(p1was.inf,p2was.inf,p3was.inf,p4was.inf), nrow=2, ncol=2, filename = "PCA_WAS_Inflammation.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1was.inf,p2was.inf,p3was.inf,p4was.inf), nrow=2, ncol=2, filename = "PCA_WAS_Inflammation.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1was.inf,p2was.inf,p3was.inf,p4was.inf), nrow=2, ncol=2, filename = "PCA_WAS_Inflammation.png", width = 2400, height = 2400, res = 300)
 
-##############################################################################################
+[[./Data/PCA_WAS_Inflammation001.png]]
 
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region per condition per function
@@ -230,18 +226,12 @@ p4was.tj <- pca.was.dc.tj <- fviz_pca_ind(prcomp(df.was.dc.tj), title = "PCA - D
 #Visual inspection of the data
 #plot(pca.was.jej.tj) #Plot individual PCA
 ggexport(plotlist = list(p1was.tj,p2was.tj,p3was.tj,p4was.tj), nrow=2, ncol=2, filename = "PCA_WAS_TightJunction.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1was.tj,p2was.tj,p3was.tj,p4was.tj), nrow=2, ncol=2, filename = "PCA_WAS_TightJunction.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1was.tj,p2was.tj,p3was.tj,p4was.tj), nrow=2, ncol=2, filename = "PCA_WAS_TightJunction.png", width = 2400, height = 2400, res = 300)
+[[./Data/PCA_WAS_TightJunction001.png]]
 #+END_SRC
 
-
-
-
-
-##########################################################################################
-##########################################################################################
 ** Data parsing, PCA computing and visualization for WAS + treatment
-* Include overall genes and gene sets
-
+^Include overall genes and gene sets
 #+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region and per condition
@@ -294,9 +284,9 @@ p4ib <- pca.ib.dc <- fviz_pca_ind(prcomp(df.ib.dc), title = "PCA - Distal colon"
 #Visual inspection of the data
 #plot(pca.ib.jej) #Plot individual PCA
 ggexport(plotlist = list(p1ib,p2ib,p3ib,p4ib), nrow=2, ncol=2, filename = "PCA_IB.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1ib,p2ib,p3ib,p4ib), nrow=2, ncol=2, filename = "PCA_IB.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1ib,p2ib,p3ib,p4ib), nrow=2, ncol=2, filename = "PCA_IB.png", width = 2400, height = 2400, res = 300)
 
-##############################################################################################
+[[./Data/PCA_IB001.png]]
 
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region per condition per function
@@ -342,9 +332,9 @@ p4ib.ax <- pca.ib.dc.ax <- fviz_pca_ind(prcomp(df.ib.dc.ax), title = "PCA - Dist
 #Visual inspection of the data
 #plot(pca.ib.jej.ax) #Plot individual PCA
 ggexport(plotlist = list(p1ib.ax,p2ib.ax,p3ib.ax,p4ib.ax), nrow=2, ncol=2, filename = "PCA_IB_Antioxydant.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1ib.ax,p2ib.ax,p3ib.ax,p4ib.ax), nrow=2, ncol=2, filename = "PCA_IB_Antioxydant.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1ib.ax,p2ib.ax,p3ib.ax,p4ib.ax), nrow=2, ncol=2, filename = "PCA_IB_Antioxydant.png", width = 2400, height = 2400, res = 300)
 
-##############################################################################################
+[[./Data/PCA_IB_Antioxydant001.png]]
 
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region per condition per function
@@ -390,9 +380,9 @@ p4ib.inf <- pca.ib.dc.inf <- fviz_pca_ind(prcomp(df.ib.dc.inf), title = "PCA - D
 #Visual inspection of the data
 #plot(pca.ib.jej.inf) #Plot individual PCA
 ggexport(plotlist = list(p1ib.inf,p2ib.inf,p3ib.inf,p4ib.inf), nrow=2, ncol=2, filename = "PCA_IB_Inflammation.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1ib.inf,p2ib.inf,p3ib.inf,p4ib.inf), nrow=2, ncol=2, filename = "PCA_IB_Inflammation.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1ib.inf,p2ib.inf,p3ib.inf,p4ib.inf), nrow=2, ncol=2, filename = "PCA_IB_Inflammation.png", width = 2400, height = 2400, res = 300)
 
-##############################################################################################
+[[./Data/PCA_IB_Inflammation001.png]]
 
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region per condition per function
@@ -438,14 +428,11 @@ p4ib.tj <- pca.ib.dc.tj <- fviz_pca_ind(prcomp(df.ib.dc.tj), title = "PCA - Dist
 #Visual inspection of the data
 #plot(pca.ib.jej.tj) #Plot individual PCA
 ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.pdf", width = 800, height = 800)
-ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.png", width = 2400, height = 2400, res = 300)
+[[./Data/PCA_IB_Inflammation001.png]]
 #+END_SRC
 
-##########################################################################################
-##########################################################################################
-
-*** FAMD - Factor Analysis of Mixed Data
-
+* FAMD - Factor Analysis of Mixed Data
 #+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 library("FactoMineR")
 library("factoextra")
@@ -466,7 +453,6 @@ famd2 <- fviz_ellipses(res.famd, c("Organ", "Condition"),
              repel = TRUE)
 
 ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.pdf", width = 800, height = 800)
-ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.png", width = 800, height = 800, res = 300)
+ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.png", width = 2400, height = 2400, res = 300)
 #+END_SRC
-
-[[./Data/FAMD.pdf]]
+[[./Data/FAMD.png]]
