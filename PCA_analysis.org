@@ -1,6 +1,8 @@
+*** PCA Analysis
+
+** Environment and data input
 
 #+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
-
 #Set directory
 setwd("~\Data")
 
@@ -10,15 +12,18 @@ library(ggpubr)
 
 #Import your data into R
 #We use tab delimited .txt files
-data <- read.table("data.txt", sep = "\t", header = T, row.names = 1)
+data <- read.table("~\Data\data.txt", sep = "\t", header = T, row.names = 1)
+#+END_SRC
 
+** Data preparation for WAS
+
+#+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 # Standardize the data sets
 df <- data[1:191, 1:13]
 df <- df.scaled <- scale(df)
 
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region and per condition
-
 #Regional data for WAS only
 was.jej <- data[1:24, 1:15]
 was.ile <- data[49:72, 1:15]
@@ -30,7 +35,11 @@ df.was.jej <- df[1:24, 1:13]
 df.was.ile <- df[49:72, 1:13]
 df.was.pc <- df[96:119, 1:13]
 df.was.dc <- df[144:167, 1:13]
+#+END_SRC
 
+** PCA computing with prcomp() function for WAS
+
+#+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 #Compute PCA with prcomp function
 p1was <- pca.was.jej <- fviz_pca_ind(prcomp(df.was.jej), title = "PCA - Jejunum",
              habillage = was.jej$Condition,
@@ -63,14 +72,21 @@ p4was <- pca.was.dc <- fviz_pca_ind(prcomp(df.was.dc), title = "PCA - Distal col
               ggtheme = theme_classic(),
               legend = "right",
               addEllipses = TRUE)
+#+END_SRC
 
+** PCA visualization and figure exportation for WAS
+
+#+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
+#Compute PCA with prcomp function
 #Visual inspection of the data
 #plot(pca.was.jej) #Plot individual PCA
 ggexport(plotlist = list(p1was,p2was,p3was,p4was), nrow=2, ncol=2, filename = "PCA_WAS.pdf", width = 800, height = 800)
 ggexport(plotlist = list(p1was,p2was,p3was,p4was), nrow=2, ncol=2, filename = "PCA_WAS.png", width = 800, height = 800, res = 300)
+#+END_SRC
 
-##############################################################################################
+** PCA computing with prcomp() function and visualization for WAS and each gene sets
 
+#+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region per condition per function
 
@@ -215,10 +231,18 @@ p4was.tj <- pca.was.dc.tj <- fviz_pca_ind(prcomp(df.was.dc.tj), title = "PCA - D
 #plot(pca.was.jej.tj) #Plot individual PCA
 ggexport(plotlist = list(p1was.tj,p2was.tj,p3was.tj,p4was.tj), nrow=2, ncol=2, filename = "PCA_WAS_TightJunction.pdf", width = 800, height = 800)
 ggexport(plotlist = list(p1was.tj,p2was.tj,p3was.tj,p4was.tj), nrow=2, ncol=2, filename = "PCA_WAS_TightJunction.png", width = 800, height = 800, res = 300)
+#+END_SRC
+
+
+
+
 
 ##########################################################################################
 ##########################################################################################
+** Data parsing, PCA computing and visualization for WAS + treatment
+* Include overall genes and gene sets
 
+#+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 #Parse numeric data matrix ([samples, gene expression])
 #Data per region and per condition
 
@@ -415,12 +439,14 @@ p4ib.tj <- pca.ib.dc.tj <- fviz_pca_ind(prcomp(df.ib.dc.tj), title = "PCA - Dist
 #plot(pca.ib.jej.tj) #Plot individual PCA
 ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.pdf", width = 800, height = 800)
 ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.png", width = 800, height = 800, res = 300)
+#+END_SRC
 
 ##########################################################################################
 ##########################################################################################
 
-#FAMD - Factor Analysis of Mixed Data
+*** FAMD - Factor Analysis of Mixed Data
 
+#+begin_src R :session *R* :eval yes :exports code :tangle ./src/PCA_analysis.R
 library("FactoMineR")
 library("factoextra")
 
@@ -441,5 +467,6 @@ famd2 <- fviz_ellipses(res.famd, c("Organ", "Condition"),
 
 ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.pdf", width = 800, height = 800)
 ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.png", width = 800, height = 800, res = 300)
-
 #+END_SRC
+
+[[./Data/FAMD.pdf]]
