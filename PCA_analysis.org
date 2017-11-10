@@ -412,3 +412,29 @@ p4ib.tj <- pca.ib.dc.tj <- fviz_pca_ind(prcomp(df.ib.dc.tj), title = "PCA - Dist
 #plot(pca.ib.jej.tj) #Plot individual PCA
 ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.pdf", width = 800, height = 800)
 ggexport(plotlist = list(p1ib.tj,p2ib.tj,p3ib.tj,p4ib.tj), nrow=2, ncol=2, filename = "PCA_IB_TightJunction.png", width = 800, height = 800, res = 300)
+
+##########################################################################################
+##########################################################################################
+
+#FAMD - Factor Analysis of Mixed Data
+
+library("FactoMineR")
+library("factoextra")
+
+data <- read.table("data.txt", sep = "\t", header = T, row.names = 1)
+res.famd <- FAMD(data, graph = FALSE) # Standardize the data sets
+
+famd1 <- fviz_mfa_ind(res.famd,
+             habillage = "Condition", # color by groups
+             palette = c("Blue3", "Green3", "Purple3", "Red3"), # color by groups
+             geom = c("point"),
+             addEllipses = TRUE, ellipse.type = "confidence",
+             repel = TRUE) # Avoid text overlapping
+
+famd2 <- fviz_ellipses(res.famd, c("Organ", "Condition"),
+             palette = c("Blue3", "coral", "Green3", "Purple3", "gold1", "orange2", "orangered2", "Red3"),
+             geom = c("point"),
+             repel = TRUE)
+
+ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.pdf", width = 800, height = 800)
+ggexport(plotlist = list(famd1, famd2), nrow=2, filename = "FAMD.png", width = 800, height = 800, res = 300)
